@@ -9,6 +9,14 @@
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{css,html,js,jsx,json,md}": "prettier --write"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
