@@ -1,16 +1,17 @@
-import logo from "./beer-svgrepo-com.svg";
 import "./App.css";
-import CountDown from "./Countdown";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BasketScreen from "./BasketScreen";
+import HomeScreen from "./HomeScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to Chope My Beer</p>
-        <CountDown initialCount={42} step={-1} />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/basket" element={<BasketScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
