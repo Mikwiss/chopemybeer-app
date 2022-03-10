@@ -5,6 +5,7 @@
   "scripts": {
     "build": "react-scripts build",
     "commit": "git-cz",
+    "format": "prettier --write **/*.{css,html,js,jsx,json,md}",
     "prepare": "husky install",
     "start": "react-scripts start",
     "test": "react-scripts test"
@@ -15,7 +16,8 @@
     ]
   },
   "lint-staged": {
-    "*.{css,html,js,jsx,json,md}": "prettier --write"
+    "*.{css,html,js,jsx,json,md}": "prettier --write",
+    "yarn.lock": "yarn-deduplicate yarn.lock"
   },
   "browserslist": {
     "production": [
