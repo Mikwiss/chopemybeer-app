@@ -1,11 +1,11 @@
-import { string, node, boolean } from "prop-types";
-import { Title, Subtitle } from "./styles";
+import { Typography } from "@mui/material";
+import { string, node, bool } from "prop-types";
 
 export default function Screen({ title, navigation, isHome = false }) {
   return (
     <>
-      <Title>Chope my beer</Title>
-      <Subtitle isHome={isHome}>{title}</Subtitle>
+      <Typography variant="h1">Chope my beer</Typography>
+      <Typography variant="h2">{title}</Typography>
       <nav>{navigation}</nav>
     </>
   );
@@ -14,5 +14,5 @@ export default function Screen({ title, navigation, isHome = false }) {
 Screen.propTypes = {
   title: string.isRequired,
   navigation: node,
-  isHome: boolean,
+  isHome: bool,
 };
