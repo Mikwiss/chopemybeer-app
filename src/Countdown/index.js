@@ -1,6 +1,6 @@
 import { number } from "prop-types";
 import React from "react";
-import "./style.css";
+import "./styles.css";
 import useCounter from "../useCounter";
 
 export default function CountDown({ initialCount = 100, step = -1 }) {

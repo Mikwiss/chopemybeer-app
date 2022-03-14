@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import Screen from "../Screen";
 
 export default function HomeScreen() {
   return (
     <>
-      <p>Welcome to Chope My Beer</p>
-      <nav>
-        <Link to="/basket">Voir mon panier</Link>
-      </nav>
+      <Screen
+        title="Welcome to Chope My Beer"
+        navigation={<Link to="/basket">Voir mon panier</Link>}
+        isHome
+      />
     </>
   );
 }

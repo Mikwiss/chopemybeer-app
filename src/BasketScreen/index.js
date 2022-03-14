@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
+import Screen from "../Screen";
 
 export default function BasketScreen() {
   return (
     <>
-      <p>Ma Chope</p>
-      <nav>
-        <Link to="/">Chope my beer</Link>
-      </nav>
+      <Screen title="Ma Chope" navigation={<Link to="/">Chope my beer</Link>} />
     </>
   );
 }
