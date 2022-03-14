@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.App a {
+  color: white;
+  text-decoration: none;
+}
+
+.App a:hover {
+  color: #c63c22;
+}
