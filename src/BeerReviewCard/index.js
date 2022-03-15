@@ -1,7 +1,9 @@
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import styled from "@emotion/styled";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import {
   Avatar,
+  Badge,
   Card,
   CardActions,
   CardContent,
@@ -12,14 +14,26 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import React from "react";
+import useCounter from "../useCounter";
 
-export default function BeerReviewCard({ id }) {
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));
+
+export default function BeerReviewCard({ initialQuantity = 0, id }) {
+  const [quantity, { increment, decrement }] = useCounter(initialQuantity, 1);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            B
           </Avatar>
         }
         title="Shrimp and Chorizo Paella"
@@ -39,11 +53,13 @@ export default function BeerReviewCard({ id }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="add to cart" onClick={increment}>
+          <StyledBadge badgeContent={quantity} color="primary">
+            <AddShoppingCartIcon />
+          </StyledBadge>
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
+        <IconButton aria-label="add to cart" onClick={decrement}>
+          <RemoveShoppingCartIcon />
         </IconButton>
       </CardActions>
     </Card>
