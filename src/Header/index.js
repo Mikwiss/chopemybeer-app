@@ -26,7 +26,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 0, mr: 2, display: { xs: "none", md: "flex" } }}>
