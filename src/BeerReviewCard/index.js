@@ -30,7 +30,7 @@ export default function BeerReviewCard({
   maxQuantity,
   id,
 }) {
-  const [quantity, { increment, decrement }] = useCounter(
+  const [quantity, { increment, reset }] = useCounter(
     initialQuantity,
     maxQuantity,
     1
@@ -66,7 +66,7 @@ export default function BeerReviewCard({
             <AddShoppingCartIcon />
           </StyledBadge>
         </IconButton>
-        <IconButton aria-label="add to cart" onClick={decrement}>
+        <IconButton aria-label="add to cart" onClick={reset}>
           <RemoveShoppingCartIcon />
         </IconButton>
       </CardActions>
