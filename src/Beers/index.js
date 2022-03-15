@@ -4,6 +4,8 @@ import BeerReviewCard from "../BeerReviewCard";
 export default function Beers() {
   const beers = new Array(20).fill(null).map((_, i) => ({
     id: i,
+    country: "FR",
+    stock: i + 1,
   }));
 
   return (
@@ -15,9 +17,13 @@ export default function Beers() {
         alignItems="center"
         spacing={4}
       >
-        {beers.map(({ id }) => (
-          <Grid item>
-            <BeerReviewCard key={id} id={id}></BeerReviewCard>
+        {beers.map(({ id, stock }) => (
+          <Grid key={id} item>
+            <BeerReviewCard
+              key={id}
+              id={id}
+              maxQuantity={stock}
+            ></BeerReviewCard>
           </Grid>
         ))}
       </Grid>

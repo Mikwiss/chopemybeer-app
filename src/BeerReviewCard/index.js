@@ -25,8 +25,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export default function BeerReviewCard({ initialQuantity = 0, id }) {
-  const [quantity, { increment, decrement }] = useCounter(initialQuantity, 1);
+export default function BeerReviewCard({
+  initialQuantity = 0,
+  maxQuantity,
+  id,
+}) {
+  const [quantity, { increment, decrement }] = useCounter(
+    initialQuantity,
+    maxQuantity,
+    1
+  );
 
   return (
     <Card sx={{ maxWidth: 345 }}>
