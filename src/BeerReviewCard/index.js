@@ -1,3 +1,4 @@
+import { number, shape, string } from "prop-types";
 import styled from "@emotion/styled";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
@@ -14,7 +15,7 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import React from "react";
-import useCounter from "../useCounter";
+import { useCounter } from "../hooks";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -26,10 +27,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export default function BeerReviewCard({
+  beer,
   initialQuantity = 0,
   maxQuantity,
-  id,
 }) {
+  const { name, tagline, image_url: image, description } = beer;
+
   const [quantity, { increment, reset }] = useCounter(
     initialQuantity,
     maxQuantity,
@@ -44,20 +47,13 @@ export default function BeerReviewCard({
             B
           </Avatar>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={name}
+        subheader={tagline}
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image={`https://picsum.photos/200?random=${id}`}
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="194" image={image} alt={name} />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description.substring(0, 100)}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -73,3 +69,13 @@ export default function BeerReviewCard({
     </Card>
   );
 }
+
+BeerReviewCard.propTypes = {
+  beer: shape({
+    id: number,
+    name: string,
+    tagline: string,
+    description: string,
+    image_url: string,
+  }),
+};
