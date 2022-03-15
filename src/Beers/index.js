@@ -1,10 +1,14 @@
-import { Box, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid, Pagination } from "@mui/material";
 import React from "react";
 import BeerReviewCard from "../BeerReviewCard";
 import { useBeers } from "../hooks";
 
 export default function Beers() {
-  const [beers] = useBeers();
+  const { isLoading, error, beers } = useBeers();
+
+  if (isLoading) {
+    return <CircularProgress></CircularProgress>;
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }} m={1} mt={2}>
@@ -17,7 +21,10 @@ export default function Beers() {
       >
         {beers.map((beer) => (
           <Grid key={beer.id} item>
-            <BeerReviewCard beer={beer}></BeerReviewCard>
+            <BeerReviewCard
+              beer={beer}
+              maxQuantity={beer.id + 2}
+            ></BeerReviewCard>
           </Grid>
         ))}
       </Grid>

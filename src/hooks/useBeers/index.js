@@ -1,18 +1,29 @@
-import React from "react";
+import { useQuery } from "react-query";
 
 const responseToJson = (response) => response.json();
 
+const apiUri = "https://api.punkapi.com/v2";
+
 export default function useBeers() {
-  const [beers, setBeers] = React.useState([]);
-
-  React.useEffect(() => {
-    fetch("https://api.punkapi.com/v2/beers")
+  const { isLoading, error, data } = useQuery("beers", () =>
+    fetch(`${apiUri}/beers`)
       .then(responseToJson)
-      .then((beers) => {
-        console.log(beers);
-        setBeers(beers);
-      });
-  }, [setBeers]);
+      .then((data) => {
+        console.log("Success:", data);
+        return data;
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        return data;
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        return data;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+  );
 
-  return [beers];
+  return { isLoading, error, beers: data };
 }
