@@ -8,6 +8,8 @@ import HomeScreen from "../HomeScreen";
 import theme from "./theme";
 
 import { Beers } from "../Beers";
+
+import { BeersReviewCard } from "../Beers";
 import { Header } from "../Header";
 
 const queryClient = new QueryClient();

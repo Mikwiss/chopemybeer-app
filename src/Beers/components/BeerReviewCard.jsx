@@ -1,10 +1,8 @@
 import { number, shape, string } from "prop-types";
-import styled from "@emotion/styled";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import {
   Avatar,
-  Badge,
   Card,
   CardActions,
   CardContent,
@@ -16,15 +14,7 @@ import {
 import { red } from "@mui/material/colors";
 import React from "react";
 import { useCounter } from "../../hooks";
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}));
+import { StyledBadge } from "../styles/StyledBadge";
 
 export default function BeerReviewCard({
   beer,
