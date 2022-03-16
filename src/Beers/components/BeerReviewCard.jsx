@@ -21,7 +21,7 @@ export default function BeerReviewCard({
   initialQuantity = 0,
   maxQuantity,
 }) {
-  const { name, tagline, image_url: image, description } = beer;
+  const { name, tagline, image_url: image, description, ibu } = beer;
 
   const [quantity, { increment, reset }] = useCounter(
     initialQuantity,
@@ -34,7 +34,7 @@ export default function BeerReviewCard({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            B
+            {ibu}
           </Avatar>
         }
         title={name}

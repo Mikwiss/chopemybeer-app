@@ -9,8 +9,5 @@ export default function fetchPunkApi(route) {
         console.log("Response useBeers:", response);
         return response;
       })
-      .then(responseToJson)
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .then(responseToJson);
 }
