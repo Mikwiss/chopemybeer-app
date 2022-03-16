@@ -6,8 +6,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import BasketScreen from "../BasketScreen";
 import HomeScreen from "../HomeScreen";
 import theme from "./theme";
-import Header from "../Header";
-import Beers from "../Beers";
+
+import { Beers } from "../Beers";
+import { Header } from "../Header";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
-          <Header></Header>
+          <Header />
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/beers" element={<Beers />} />

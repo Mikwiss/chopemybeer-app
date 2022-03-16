@@ -1,5 +1,5 @@
 import { Icon } from "@mui/material";
-import logo from "./beer.svg";
+import logo from "./../images/beer.svg";
 
 export default function AppIcon(props) {
   return (

@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import React from "react";
-import { useCounter } from "../hooks";
+import { useCounter } from "../../hooks";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
